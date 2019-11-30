@@ -7,6 +7,9 @@ import java.util.LinkedList;
  */
 public class SinglyLinkedList {
 
+    public Node head = null;
+    public Node tail = null;
+
 
     public class Node {
         Integer data;
@@ -20,8 +23,7 @@ public class SinglyLinkedList {
         }
 
     }
-    public Node head = null;
-    public Node tail = null;
+
 
     public void addNode(int data){
         Node newNode = new Node(data);
@@ -43,6 +45,7 @@ public class SinglyLinkedList {
         }
 
     }
+
     public Boolean contains(Integer element){
         Node lastNode = this.head;
         while (lastNode.next != null){
@@ -53,6 +56,7 @@ public class SinglyLinkedList {
         }
         return false;
     }
+
     public int find(Integer element){
         Node lastNode = this.head;
         while (lastNode != null){
@@ -80,6 +84,7 @@ public class SinglyLinkedList {
         }
         return counter;
     }
+
     public Integer get( Integer index){
         Node lastNode = this.head;
         if(index <= this.size()){
@@ -93,6 +98,31 @@ public class SinglyLinkedList {
         }
         return -1;
     }
+
+    public SinglyLinkedList copy(){
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        for (int i = 0; i < this.size(); i++) {
+            singlyLinkedList.addNode(this.get(i));
+        }
+        return singlyLinkedList;
+    }
+
+    public void sort(){
+        Node currNode;
+        for (int i = 0; i < this.size(); i++) {
+            currNode = this.head;
+            for (int j = i + 1; j < this.size(); j++) {
+                if(currNode.data > currNode.next.data){
+                    Integer hold = currNode.data;
+                    currNode.data = currNode.next.data;
+                    currNode.next.data = hold;
+                }
+                    currNode = currNode.next;
+            }
+        }
+
+    }
+
     public void remove(int index){
         if (index == 0){
              head = head.next;

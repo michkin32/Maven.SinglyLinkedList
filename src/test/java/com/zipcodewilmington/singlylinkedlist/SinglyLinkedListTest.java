@@ -65,4 +65,35 @@ public class SinglyLinkedListTest {
 
 
     }
+    @Test
+    public void CopyTest(){
+        SinglyLinkedList list = new SinglyLinkedList();
+
+
+        list.addNode(2);
+        list.addNode(3);
+        list.addNode(6);
+
+        SinglyLinkedList listCopy = list.copy();
+        Assert.assertEquals(list.head.data, listCopy.head.data);
+
+
+
+    }
+    @Test
+    public void SortTest(){
+        SinglyLinkedList list = new SinglyLinkedList();
+
+        list.addNode(1);
+        list.addNode(8);
+        list.addNode(4);
+        list.addNode(2);
+
+        list.sort();
+        Assert.assertEquals(list.get(1), (Integer) 2);
+
+
+
+    }
+
 }
