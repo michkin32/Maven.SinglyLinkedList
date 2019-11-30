@@ -41,6 +41,7 @@ public class SinglyLinkedList {
             }
 
             lastNode.next = newNode;
+            this.tail = newNode;
 
         }
 
@@ -123,10 +124,33 @@ public class SinglyLinkedList {
 
     }
 
-    public void remove(int index){
-        if (index == 0){
-             head = head.next;
+    public Boolean remove(int index) {
+        Node currNode = this.head;
+
+        Integer dataAtIndex = this.get(index);
+
+        if (dataAtIndex == this.head.data) {
+            this.head = this.head.next;
+            return true;
+        } else if (dataAtIndex == this.tail.data) {
+            while (currNode.next != null) {
+                if (currNode.next.data == dataAtIndex) {
+                    currNode.next = null;
+                    return true;
+                }
+            }
+        } else {
+            while (currNode.next != null) {
+                if (currNode.next.data == dataAtIndex) {
+                    currNode.next = currNode.next.next;
+
+                    return true;
+                }
+                currNode = currNode.next;
+
+            }
         }
+        return false;
     }
 
 }

@@ -95,5 +95,20 @@ public class SinglyLinkedListTest {
 
 
     }
+    @Test
+    public void RemoveTest(){
+        SinglyLinkedList list = new SinglyLinkedList();
 
+        list.addNode(1);
+        list.addNode(8);
+        list.addNode(4);
+        list.addNode(2);
+
+        Boolean actual = list.remove(1);
+        Assert.assertEquals(list.get(1), (Integer) 4);
+        Assert.assertTrue(actual);
+
+
+
+    }
 }
